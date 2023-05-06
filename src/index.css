@@ -1,0 +1,153 @@
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Open+Sans:wght@300;400;500;600;700;800&family=Poppins:wght@300;400;500;600;700;800&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Copse&family=Newsreader:opsz,wght@6..72,300;6..72,400;6..72,500;6..72,600;6..72,700;6..72,800&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Quicksand:wght@300;400;500;600;700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Roboto+Flex:wght@200;300;400;500;600;700;800;900;1000&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Pacifico&display=swap");
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+* {
+  cursor: none;
+}
+
+body {
+  overflow: hidden;
+  -webkit-user-select: none; /* Safari */
+  -ms-user-select: none; /* IE 10 and IE 11 */
+  user-select: none; /* Standard syntax */
+}
+
+.scroll-prog {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 10px;
+  background: #3c2cff;
+  transform-origin: 0%;
+  z-index: 1000;
+}
+
+.App {
+  background-color: #fdfdf5;
+  overflow-y: scroll;
+  overflow-x: hidden;
+  max-height: 100vh;
+  -ms-overflow-style: none; /* IE and Edge */
+  scrollbar-width: none; /* Firefox */
+}
+.App::-webkit-scrollbar {
+  display: none;
+}
+:root {
+  font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
+  line-height: 1.5;
+  font-weight: 400;
+
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-text-size-adjust: 100%;
+  background-color: #fff;
+}
+
+.hello-cont-outer {
+}
+.image-mask-cont {
+  width: 1400px;
+  height: 100px;
+}
+
+.large-hello-cont {
+  font-size: 13em;
+}
+
+.hello-cont {
+  font-family: "Pacifico", sans-serif;
+  /* background: -webkit-linear-gradient(#ffbd81, #ffd645); 
+   -webkit-background-clip: text; 
+   -webkit-text-fill-color: transparent;  */
+}
+
+.intro-deco-text {
+}
+.intro-text {
+  font-weight: 900;
+
+  font-family: "Roboto Flex", sans-serif;
+}
+.intro-text-2 {
+  /* font-weight: 600; */
+  /* font-family: "Roboto Flex", sans-serif; */
+}
+
+.header-cont {
+  background-color: #fdfdf5;
+}
+
+.card-tit {
+  font-family: "Roboto Flex", sans-serif;
+  font-weight: 800;
+}
+
+.scroll-indi {
+  -webkit-animation: mover 1s infinite alternate;
+  animation: mover 1s infinite alternate;
+}
+.scroll-indi {
+  -webkit-animation: mover 1s infinite alternate;
+  animation: mover 1s infinite alternate;
+}
+@-webkit-keyframes mover {
+  0% {
+    transform: translateY(0);
+  }
+  100% {
+    transform: translateY(-10px);
+  }
+}
+@keyframes mover {
+  0% {
+    transform: translateY(0);
+  }
+  100% {
+    transform: translateY(-10px);
+  }
+}
+
+.dot {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  font-size: 32px;
+  width: 52px;
+  height: 52px;
+  backdrop-filter: blur(1px);
+  border-radius: 200px;
+  transform: translate(-50%, -50%);
+  z-index: 999;
+
+  filter: invert(100%);
+
+  pointer-events: none;
+}
+
+.gal-tit {
+  font-weight: 900;
+
+  color: #fff;
+  font-family: "Roboto Flex", sans-serif;
+}
+
+.gal-tmb-cont {
+  background-color: red;
+
+  height: 200px;
+}
+
+.gal-tmb {
+  width: 300px;
+}
