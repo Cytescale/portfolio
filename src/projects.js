@@ -1,22 +1,8 @@
-import frame2 from "./assets/frame2.png";
-import frame3 from "./assets/frame3.png";
-import frame4 from "./assets/frame4.png";
-import frame5 from "./assets/frame5.png";
-import frame6 from "./assets/frame6.png";
-
-import p1 from "./assets/gallery/p1.jpg";
-import p2 from "./assets/gallery/p2.jpg";
-import p3 from "./assets/gallery/p3.jpg";
-
-export const PROJECT_VIDEOS = [
-  "_mlnMmCLPaw",
-  "oQLU_wxEH6s",
-  "okOKCMERoZw",
-  "7xsGGHfs1Iw",
-  "V_8_CuA2zfQ",
-];
-
-export const GALLERY_SHOTS = [p1, p2, p3];
+import frame2 from "./assets/Frame2.png";
+import frame3 from "./assets/Frame3.png";
+import frame4 from "./assets/Frame4.png";
+import frame5 from "./assets/Frame5.png";
+import frame6 from "./assets/Frame6.png";
 
 const PROJECTS = [
   {

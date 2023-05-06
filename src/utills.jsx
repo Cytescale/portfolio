@@ -8,16 +8,6 @@ import React, {
   useCallback,
 } from "react";
 
-import ResizeObserver from "resize-observer-polyfill";
-import {
-  motion,
-  useViewportScroll,
-  useTransform,
-  useSpring,
-} from "framer-motion";
-
-import { PROJECT_VIDEOS } from "./projects";
-
 export const MouseContext = createContext({
   cursorType: "",
   cursorChangeHandler: () => {},

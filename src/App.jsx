@@ -1,7 +1,4 @@
 import { useEffect, useState, useRef, useContext } from "react";
-import dp from "./assets/dp.png";
-import pic from "./assets/pic.png";
-
 import {
   motion,
   useScroll,
@@ -13,7 +10,7 @@ import {
 } from "framer-motion";
 import { useLayoutEffect } from "react";
 import DotRing, { MouseContext } from "./utills";
-import PROJECTS, { GALLERY_SHOTS, PROJECT_VIDEOS } from "./projects";
+import PROJECTS from "./projects";
 import CV_PDF from "./assets/cv.pdf";
 
 let color = [
