@@ -1,7 +1,7 @@
 import { useEffect, useState, useRef, useContext } from "react";
 import dp from "./assets/dp.png";
 import pic from "./assets/pic.png";
-import frame2 from "./assets/frame2.png";
+
 import {
   motion,
   useScroll,
