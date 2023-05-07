@@ -465,20 +465,27 @@ function App() {
       </div>
       <motion.div>
         <div ref={projectsRef} className="">
-          <div className=" w-screen flex justify-center items-center px-8 xl:px-32 md:px-32 sm:px-20 py-40 pb-0">
+          <div
+            id="whoami"
+            className=" w-screen flex justify-center items-center px-8 xl:px-32 md:px-32 sm:px-20 py-40 pb-0"
+          >
             <Hero sec={sec} />
           </div>
-          <div className=" w-screen px-8 xl:px-36 md:px-32 sm:px-20   mb-40">
+          <div
+            id="projects"
+            className=" w-screen px-8 xl:px-36 md:px-32 sm:px-20   mb-40"
+          >
             <Layout2 />
           </div>
         </div>
         <div
+          id="contact"
           ref={galleryRef}
           className="w-screen   flex items-start px-8 xl:px-36 md:px-32 sm:px-20 "
         >
           <Contact />
         </div>
-        <div>
+        <div id="footer">
           <Footer />
         </div>
       </motion.div>
