@@ -53,11 +53,11 @@ export function useMousePosition() {
 const DotRing = () => {
   const { cursorType, cursorChangeHandler } = useContext(MouseContext);
   const { x, y } = useMousePosition();
-  return (
+  return window.innerWidth >= 450 ? (
     <>
       {/* <div style={{ left: `${x}px`, top: `${y}px` }} className="ring"></div> */}
       <div className="dot" style={{ left: `${x}px`, top: `${y}px` }}></div>
     </>
-  );
+  ) : null;
 };
 export default DotRing;

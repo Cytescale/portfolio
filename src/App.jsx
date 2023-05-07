@@ -148,7 +148,7 @@ const Hero = ({ sec }) => {
           </div>
           <div className="text-white w-fit mt-5 text-xl ml-2  flex flex-row justify-center items-center gap-2">
             <i class="ri-mail-line"></i>
-            nikhilwilayate1998@gmail.com
+            nikhil@wilayate.dev
           </div>
         </div>
       </div>
@@ -256,7 +256,7 @@ const Footer = ({}) => {
         </div>
         <div className="flex flex-row justify-center items-center gap-2">
           <i class="ri-mail-line"></i>
-          nikhilwilayate1998@gmail.com
+          nikhil@wilayate.dev
         </div>
       </div>
       <div className="flex flex-row gap-4 text-white text-2xl">
