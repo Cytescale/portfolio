@@ -49,10 +49,10 @@ const Header = ({ mode }) => {
 
   return (
     // backdrop-blur-sm bg-gradient-to-b from-slate-300/30 to-slate-300/40
-    <div className="fixed w-screen  left-0 right-0 top-0 flex justify-center items-center mt-10 z-50 ">
+    <div className="fixed w-screen  left-0 right-0 bottom-0 flex justify-center items-center mb-10 z-50 ">
       <div
         ref={headerRef}
-        className="header-cont w-fit px-3 flex flex-row justify-center items-center py-3 z-50 rounded-full gap-4"
+        className="gap-4 header-cont w-fit px-3 flex flex-row justify-center items-center py-3 z-50 rounded-full "
       >
         {/* <a href="/home" className="text-black text-base hover:text-blue-400">
           Home
@@ -61,20 +61,27 @@ const Header = ({ mode }) => {
           Contact
         </a> */}
         <a
-          href="/home"
+          href="https://github.com/Cytescale"
           className="pl-4 text-black text-2xl  hover:text-blue-400"
         >
           <i className="ri-github-fill"></i>
         </a>
-        <a href="/home" className="text-black text-2xl hover:text-blue-400 ">
+        <a
+          href="https://twitter.com/NickWhoKnows"
+          className="text-black text-2xl hover:text-blue-400 "
+        >
           <i className="ri-twitter-fill"></i>
         </a>
-        <a href="/home" className="text-black text-2xl  hover:text-blue-400">
+        <a
+          href="https://www.linkedin.com/in/nikhilwilayate/"
+          className="text-black text-2xl  hover:text-blue-400"
+        >
           <i className="ri-linkedin-fill"></i>
         </a>
+
         <a href={CV_PDF} download="nikhilwilayatecv" target="_blank">
           <button className="bg-yellow-300 font-medium flex flex-row gap-2 justify-center items-center text-sm px-5 py-3 rounded-full">
-            Download CV
+            Résumé
             <i class="ri-download-line"></i>
           </button>
         </a>
@@ -111,12 +118,28 @@ const Hero = ({ sec }) => {
             {/* <i className="ri-star-line"></i> */}-
             <div className=" font-semibold">SYSTEM DESIGN</div>
           </div>
-          <div className="intro-text-2 text-lg  flex-wrap font-normal text-white xl:pl-2 mt-3">
-            A dedicated full-stack developer with experience in building
-            interfaces in the MERN Stack, with strong understanding of React
-            architecture, Restful web services, and database design. I love
-            crafting clean and simple tools. Always pushing myself to limits and
-            also a huge coffee addict.
+
+          <div className="intro-text-2  text-lg tracking-wide leading-8	  flex-wrap font-normal text-white xl:pl-2 mt-3">
+            I have done my{" "}
+            <span className="bg-blue-600/30 px-2 py-1 rounded-md ">
+              Bachelor of Engineering in Computer Engineering🎓
+            </span>
+            . A threestar CodeChef programmer, As a full-stack developer, I
+            specialize in the
+            <span className="bg-green-500/30 px-2 py-1 rounded-md ">
+              MERN (MongoDB,ExpressJS,ReactJS,NodeJS) Stack💻
+            </span>
+            and possess a deep understanding of React architecture, Restful web
+            services, and database design. My passion lies in creating
+            straightforward and elegant tools, and I continuously challenge
+            myself to expand my skill and a
+            <span className="bg-amber-500/30 px-2 py-1 rounded-md ">
+              coffee addict☕
+            </span>
+          </div>
+          <div className="text-white w-fit mt-5 text-xl ml-2  flex flex-row justify-center items-center gap-2">
+            <i class="ri-mail-line"></i>
+            nikhilwilayate1998@gmail.com
           </div>
         </div>
       </div>
@@ -129,8 +152,6 @@ const CardCont = ({ data }) => {
 
   const yeshover = () => setHover(true);
   const nohover = () => setHover(false);
-
-  console.log(data);
 
   return (
     <motion.div
@@ -149,36 +170,49 @@ const CardCont = ({ data }) => {
         <img src={data.tumbnailLink} className={`w-full h-full`} />
       </div>
       <div className="px-0 py-6 pb-0">
-        <div className="flex flex-row gap-3 items-center flex-wrap">
+        <div className="flex flex-row gap-1 items-center flex-wrap">
           {data &&
             data.tags.map((e, i) => {
               return (
                 <div
                   key={i}
-                  className="text-sm  font-medium underline  underline-offset-2"
+                  className="text-sm  font-medium bg-blue-500/40 px-2 py-1 rounded-full  underline-offset-2"
                 >
-                  #{e}
+                  {e}
                 </div>
               );
             })}
         </div>
         <div className="text-3xl card-tit  mt-4">{data.name}</div>
-        <div className="text-base font-normal  mt-2  tracking-wide">
+        <div className="text-base font-normal mt-2  tracking-wide leading-2">
           {data.description}
         </div>
         <div className="text-sm text-blue-500  font-normal  mt-4   tracking-wide flex  gap-3">
-          <a
-            href="/asd"
-            className="flex flex-row justify-center items-center gap-1 w-fit font-medium  hover:underline"
-          >
-            Watch Demo <i className="ri-arrow-right-up-line"></i>
-          </a>
-          <a
-            href="/asd"
-            className="flex flex-row justify-center items-center gap-1 w-fit font-medium hover:underline"
-          >
-            Visit Code <i className="ri-github-fill"></i>
-          </a>
+          {data.demoLink && (
+            <a
+              href={data.demoLink}
+              className="flex flex-row justify-center items-center gap-1 w-fit font-medium  hover:underline"
+            >
+              Watch Demo <i className="ri-arrow-right-up-line"></i>
+            </a>
+          )}
+
+          {data.codeLink && (
+            <a
+              href={data.codeLink}
+              className="flex flex-row justify-center items-center gap-1 w-fit font-medium hover:underline"
+            >
+              Visit Code <i className="ri-github-fill"></i>
+            </a>
+          )}
+          {data.tryLink && (
+            <a
+              href={data.tryLink}
+              className="flex flex-row justify-center items-center gap-1 w-fit font-medium hover:underline"
+            >
+              Try Yourself
+            </a>
+          )}
         </div>
       </div>
     </motion.div>
@@ -202,8 +236,8 @@ const Layout2 = ({}) => {
 
 const Footer = ({}) => {
   return (
-    <div className="w-screen px-12 xl:px-44 py-20 flex flex-col xl:flex-row justify-between items-center flex-wrap gap-6">
-      <div className="flex flex-col xl:flex-row items-center text-white text-xl font-medium gap-4">
+    <div className="w-screen px-12 md:px-32 xl:px-36 py-20 flex flex-col md:flex-row xl:flex-row justify-between items-center flex-wrap gap-6">
+      <div className="flex flex-col md:flex-row xl:flex-row items-center text-white text-xl font-medium gap-4">
         <div className="flex flex-row justify-center items-center gap-2">
           <i class="ri-phone-line"></i>
           +91-7218601239
@@ -214,15 +248,21 @@ const Footer = ({}) => {
         </div>
       </div>
       <div className="flex flex-row gap-4 text-white text-2xl">
-        <div>
+        <a href="https://github.com/Cytescale" className="  hover:text-black">
           <i className="ri-github-fill"></i>
-        </div>
-        <div>
+        </a>
+        <a
+          href="https://twitter.com/NickWhoKnows"
+          className="  hover:text-black "
+        >
           <i className="ri-twitter-fill"></i>
-        </div>
-        <div>
+        </a>
+        <a
+          href="https://www.linkedin.com/in/nikhilwilayate/"
+          className=" hover:text-black"
+        >
           <i className="ri-linkedin-fill"></i>
-        </div>
+        </a>
       </div>
     </div>
   );
@@ -374,7 +414,7 @@ function App() {
         </div>
         <div
           ref={galleryRef}
-          className="w-screen h-screen  flex items-start px-8 xl:px-40 "
+          className="w-screen   flex items-start px-8 xl:px-36 md:px-32 sm:px-20 "
         >
           <Contact />
         </div>
