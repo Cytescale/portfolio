@@ -12,6 +12,7 @@ import { useLayoutEffect } from "react";
 import DotRing, { MouseContext } from "./utills";
 import PROJECTS from "./projects";
 import CV_PDF from "./assets/cv.pdf";
+import { createClient } from "@supabase/supabase-js";
 
 let color = [
   "bg-blue-100",
@@ -23,6 +24,11 @@ let color = [
   "bg-oragne-100",
   "bg-pink-100",
 ];
+
+const supabase = createClient(
+  "https://lybptwtejnxrumhmgeca.supabase.co",
+  "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Imx5YnB0d3Rlam54cnVtaG1nZWNhIiwicm9sZSI6ImFub24iLCJpYXQiOjE2ODMzNjI1MjYsImV4cCI6MTk5ODkzODUyNn0.lB6FRf0LLxpOdOab-uh-A9r5CZreQGpuabitlIGcKkM"
+);
 
 function getRandomColor() {
   return color[Math.floor(Math.random() * color.length)];
@@ -268,7 +274,39 @@ const Footer = ({}) => {
   );
 };
 
+function validateEmail(email) {
+  const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+  return emailPattern.test(email);
+}
+
 const Contact = ({}) => {
+  const [email, setemail] = useState("");
+  const [mess, setmess] = useState("");
+  const [errMess, setErr] = useState("");
+  const [succ, setSucc] = useState(false);
+
+  const onSubmit = async () => {
+    if (!email || !mess) {
+      setErr("Please fill all the fields");
+      setSucc(false);
+      return false;
+    }
+    if (!validateEmail(email)) {
+      setErr("Invalid Email Address :(");
+      setSucc(false);
+      return false;
+    }
+
+    const { error } = await supabase
+      .from("feedbacks")
+      .insert({ ip_add: "none", email_add: email, message: mess });
+
+    if (!error) {
+      setSucc(true);
+      setErr("");
+    }
+  };
+
   return (
     <div className="flex flex-col  w-full ">
       <div className="gal-tit text-5xl xl:text-6xl text-center xl:text-left md:text-left ">
@@ -277,27 +315,49 @@ const Contact = ({}) => {
       <div className="flex flex-col gap-8 mt-12 w-full">
         <div className="flex flex-col gap-2">
           <div className="text-white text-lg rounded-md flex gap-2 items-center">
-            <i class="ri-mail-line"></i>Email Address
+            <i className="ri-mail-line"></i>Email Address
           </div>
           <input
             type={"text"}
+            value={email}
+            onChange={(e) => {
+              setemail(e.currentTarget.value);
+            }}
             className="h-11 w-full md:w-96 xl:w-96 pl-4 rounded-md"
             placeholder="Enter your email address"
           />
         </div>
         <div className="flex flex-col gap-2 ">
           <div className="text-white text-lg flex flex-row items-center gap-2 ">
-            <i class="ri-chat-3-line"></i>
+            <i className="ri-chat-3-line"></i>
             Message
           </div>
           <textarea
             type={"text"}
+            value={mess}
+            onChange={(e) => {
+              setmess(e.currentTarget.value);
+            }}
             className=" h-60 xl:h-40 md:w-96 w-full xl:w-96 pl-4 pt-4 rounded-md"
-            placeholder="Enter your email address"
+            placeholder="Tell me your message"
           />
         </div>
-        <button className="w-full xl:w-96 md:w-96 h-14 flex justify-center items-center gap-2 bg-black text-white rounded-md">
-          Send <i class="ri-send-plane-2-line"></i>
+        {errMess && (
+          <div className="bg-red-300 w-full md:w-96 xl:w-96 px-3 py-2 flex justify-center items-center gap-2 text-base font-medium text-black rounded-md">
+            <i className="ri-error-warning-line"></i>
+            {errMess}
+          </div>
+        )}
+        {succ && (
+          <div className="bg-green-300 w-full md:w-96 xl:w-96 px-3 py-2 flex justify-center items-center gap-2 text-base font-medium text-black rounded-md">
+            Message is sent 😀
+          </div>
+        )}
+        <button
+          onClick={onSubmit}
+          className="w-full xl:w-96 md:w-96 h-14 flex justify-center items-center gap-2 bg-black text-white rounded-md"
+        >
+          Send <i className="ri-send-plane-2-line"></i>
         </button>
       </div>
     </div>
