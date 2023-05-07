@@ -62,7 +62,7 @@ const PROJECTS = [
       "A notion like text editor made in ReactJs and DraftJS, using Zustand library for global state management.",
     tumbnailLink: frame5,
     codeLink: "",
-    tryLink: "https://vercel.com/cytescale/sienna",
+    tryLink: "https://siennaapp.vercel.app/",
     demoLink: "https://www.youtube.com/watch?v=7xsGGHfs1Iw",
   },
   {

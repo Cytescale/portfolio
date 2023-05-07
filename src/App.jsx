@@ -68,18 +68,21 @@ const Header = ({ mode }) => {
         </a> */}
         <a
           href="https://github.com/Cytescale"
+          target="_blank"
           className="pl-4 text-black text-2xl  hover:text-blue-400"
         >
           <i className="ri-github-fill"></i>
         </a>
         <a
           href="https://twitter.com/NickWhoKnows"
+          target="_blank"
           className="text-black text-2xl hover:text-blue-400 "
         >
           <i className="ri-twitter-fill"></i>
         </a>
         <a
           href="https://www.linkedin.com/in/nikhilwilayate/"
+          target="_blank"
           className="text-black text-2xl  hover:text-blue-400"
         >
           <i className="ri-linkedin-fill"></i>
@@ -161,7 +164,7 @@ const CardCont = ({ data }) => {
 
   return (
     <motion.div
-      whileTap={{ scale: 0.9 }}
+      // whileTap={{ scale: 0.9 }}
       className="flex flex-1 flex-col rounded-lg p-0"
     >
       <div
@@ -197,6 +200,7 @@ const CardCont = ({ data }) => {
           {data.demoLink && (
             <a
               href={data.demoLink}
+              target="_blank"
               className="flex flex-row justify-center items-center gap-1 w-fit font-medium  hover:underline"
             >
               Watch Demo <i className="ri-arrow-right-up-line"></i>
@@ -206,6 +210,7 @@ const CardCont = ({ data }) => {
           {data.codeLink && (
             <a
               href={data.codeLink}
+              target="_blank"
               className="flex flex-row justify-center items-center gap-1 w-fit font-medium hover:underline"
             >
               Visit Code <i className="ri-github-fill"></i>
@@ -213,6 +218,7 @@ const CardCont = ({ data }) => {
           )}
           {data.tryLink && (
             <a
+              target="_blank"
               href={data.tryLink}
               className="flex flex-row justify-center items-center gap-1 w-fit font-medium hover:underline"
             >
@@ -260,12 +266,14 @@ const Footer = ({}) => {
         <a
           href="https://twitter.com/NickWhoKnows"
           className="  hover:text-black "
+          target="_blank"
         >
           <i className="ri-twitter-fill"></i>
         </a>
         <a
           href="https://www.linkedin.com/in/nikhilwilayate/"
           className=" hover:text-black"
+          target="_blank"
         >
           <i className="ri-linkedin-fill"></i>
         </a>
